@@ -108,7 +108,7 @@ select{
     border-radius: 3px; /*rounds off edges*/
 }
 select option{ 
-    color:#000; /*colors the backgrounds od black*/
+    background-color:#000; /*colors the backgrounds od black*/
 }
 .signin-btn{
     display: inline-block; /*Looks like a block in the UI, cuz its a button*/
