@@ -1,0 +1,583 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+*{/* applies to everything*/
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: "Roboto",sans-serif;
+    font-weight: 400;
+    background-color: black;
+    color: white
+}
+/*Utilities*/
+.container{
+    max-width: 1280px;
+    margin: auto;
+    padding: 0px 3%; /*top has 0 padding and the right has 3 percent padding*/
+
+}
+li{
+    list-style: none; /* remove bullet points*/
+}
+h1{
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 16px; /*instead of newline, use margin-bottom*/
+    white-space: nowrap;
+
+}
+h2{
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+h3{
+    font-size: 24px;
+    font-weight:300;
+    margin-bottom: 16px;
+}
+.p1{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.p2{
+    margin-bottom: 10px;
+}
+@media screen and (max-width: 600px)
+{
+    h1{
+        font-size: 30px;
+    }
+    h2{
+        font-size: 17px;
+    }
+}
+.header{
+    height: 80vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5), /*last value determines opacity*/
+        rgba(0,0,0,0.8) 
+        /*dont add extra comma here, since this is last value*/
+    ),
+    url("https://assets.nflxext.com/ffe/siteui/vlv3/563192ea-ac0e-4906-a865-ba9899ffafad/d8882814-21a8-42c5-b864-81c071729c2c/CA-en-20231218-popsignuptwoweeks-perspective_alpha_website_small.jpg");
+    background-repeat: no-repeat;
+    object-fit: cover; 
+    background-position: center;
+}
+.navbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /*splits the elements with even spaces.*/
+    padding: 25px 0; /*pushes it from the top*/ 
+}
+.logo{
+    margin-right: auto; /* moves the middle element right*/
+}
+.logo svg{ 
+/*add svg to make sure that its height is contained relative to logos height*/
+    fill: #e50914;
+    height: 40px;
+}
+@media screen and (max-width: 600px)
+{
+    .logo svg{
+        height: 24px;
+    }
+}
+.select-box{
+    position: relative; /*keeps it in place*/
+}
+.select-box svg{
+    height: 20px; /*pushes the element lower*/
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+select{
+    display: inline-block; /*Looks like a block*/
+    cursor: pointer;
+    font: 14px;
+    color: white;
+    background: transparent; 
+    border: 1px solid #fff; /*thin white border around button*/
+    padding: 6px 0px 6px 26px; /*top, right, down, left*/
+    border-radius: 3px; /*rounds off edges*/
+}
+select option{ 
+    color:#000; /*colors the backgrounds od black*/
+}
+.signin-btn{
+    display: inline-block; /*Looks like a block in the UI, cuz its a button*/
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: capitalize;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 3px;
+    margin-left: 30px; /*this seperates the buttons*/
+}
+.signin-btn svg{
+    margin-top: 10px;
+}
+.signin-btn:hover{
+    background-color: darkred;
+    transition-timing-function: cubic-bezier(.5,0,0.1,1);
+
+}
+/*Header Content*/
+.header-content{ /*multiple layers of UI so we use grid*/
+    display: grid;
+    padding: 25vh;
+    place-content: center;
+    text-align: center;
+    padding-bottom: 0vh;
+}
+@media screen and (max-width: 600px)
+{
+    .form-field{
+        padding: 0; /*use less space*/
+    }
+}
+.form{  /*THIS ENCAPSULATES EMAIL AND BUTTON*/
+    display: flex;
+    justify-content: center; /*puts both elements right next to each other in the middle*/
+    width: 100%;
+    gap: 10px; /*makes the gap between the form field and the button*/
+}
+@media screen and (max-width: 600px)
+{
+    .form{
+        flex-direction: column; /*because phones have more vertical than horizontal*/
+    }
+}
+.form-group{
+    width: 55%; /*controls size of the email input box*/
+    height: 60px;
+    position: relative; /*important for orientation of the elements*/
+}
+@media screen and (max-width: 600px)
+{
+    .form-group{
+        width: 100%; /*screen is less wide so u need to take more space*/
+    }
+}
+.form-input{
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    color: white; /*the inside of the inputbox*/
+    background-color: transparent; /*border of the inputbox*/
+    border-width: thin;
+    border-color: white;
+    border-radius: 5px;
+    padding: 20px 15px;
+}
+.form-label{ /* need to fit this in the email label*/
+    position: absolute;
+     /*setting the value to 0 moves it in that direction*/
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    padding: 20px 15px;
+    color: white
+}
+/*stuff below gives the email placeholder effect on the inputbox*/
+.form-input:focus + .form-label{
+    top: -12px;
+    left: 0;
+    color: white;
+    font-size: 12px;
+    z-index: 10;
+}
+.get-btn{
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    background-color: red;
+    color: white;
+    padding: 15px 25px; 
+    border-style: none;
+    border-radius: 3px;
+}
+.svg-button{
+    padding-top: 5px;
+}
+@media screen and (max-width: 600px)
+{
+    .get-btn{
+        align-self: center; 
+        /*going to be below email form input so it should be centered*/
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+}
+.get-btn:hover{
+    background-color: darkred;
+    transition-timing-function: cubic-bezier(.5,0,0.1,1);
+}
+.parent-bannertext{
+    display: flex;
+    place-content: center; 
+    /*place-content and text-align are not redundant for both parent 
+    and banner u need them to balance within the parent div, 
+    and in the child div u need it to ensure it doesnt go to the left 
+    which is default flex behaviour*/
+    text-align: center;
+}
+.bannertext{
+    margin-top: 9vh;
+    padding: 30px 90px 30px 90px;
+    display: flex;  
+    flex: 0 0 100vw; 
+    /*very useful technique for ensuring the element fills the full width, requires a parent element with display:flex*/
+    place-content: center;
+    text-align: center;
+    /*everything below copy pasted from netflix*/
+    background: radial-gradient( 51.39% 511.66% at 47.68% -217.91%, #ff9900 0%, #e50914 17.27%, #0e1b4f 79.44%, #000413 100% );
+    box-shadow: 0px -8px 25px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    color: white;
+}
+.icon-text{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+.text-group{
+    text-align: start;
+    height: 100%;
+    width: 100%;
+}
+.signup-btn{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    font-weight: 700;
+    color: #448ef4;
+}
+.summary-tv{
+    flex-basis: 50%; /*ensures that the space taken by the text is at least 50 percent of the space*/
+}
+.summary-tv h2{
+    font-size: 50px;
+    font-weight: 900;
+}
+.summary-tv p{
+    font-size: 24px;
+}
+.parent-textvideo{
+    padding: 5px 0px;  
+}
+.text-tv{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.tv-video-image{
+    position: relative; /*important for overlapping images*/
+}
+.tv-video-image image{
+    width: 100%;
+}
+.tv-video{
+    z-index: -1;
+    position: absolute;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    max-width: 73%;
+    max-height: 54%;
+    top: 48%;
+    left: 50%;
+}
+.borderparent{
+    display: flex;
+    place-content: center; /*important for establishing a full screen line*/
+}
+.border{
+    width: 100%;
+    flex: 0 0 100vw; 
+    background-color: rgb(35,35,35);
+    height: 0.5rem;
+}
+.watcheverywhere-section{
+    padding-top: 10vh;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.watch-text{
+    flex-basis: 50%;
+}
+.watch-text h2{
+    font-size: 50px;
+    font-weight: 900;
+}
+.watch-text p{
+    font-size: 24px;
+}
+.image-video{
+    position: relative;
+}
+.image-video image{
+    width: 100%;
+}
+.appletv-video{
+    z-index: -1;
+    transform: translate(-51%,-70%);
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 63%;
+    max-height: 54%;
+    top: 48%;
+    left: 50%;
+}
+.kidsprofile-section{
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.kidsprofile-summary h2{
+    font-size: 50px;
+    font-weight: 900;
+}
+.kidsprofile-summary p{
+    font-size: 24px;
+}
+.kidsprofile-summary{
+    flex-basis: 50%;
+}
+.downloadvideos-offline{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.downloadvideos-offline h2{
+    font-size: 50px;
+}
+.downloadvideos-offline p{
+    font-size: 24px;
+}
+.phone-image{
+    width: 100%;
+    flex-basis: 40%;
+}
+.textimage-subbox{
+    overflow: hidden;
+    position: absolute;
+    left: 14%;
+    bottom: 6%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: flex;
+    align-items: center;
+    background-color: #000;
+    border: 2px solid rgba(128,128,128,0.7);
+    box-shadow: 0 0 2em 0 rgb(0,0,0);
+    border-radius: 0.75rem;
+    z-index: 1;
+    padding-right: 6%;
+}
+.text-subbox{
+    text-align: left;
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin: 0.3rem 0;
+}
+.text-subbox h1{
+    font-size: 17px;
+    font-weight: 900;
+    margin-top: 15%;
+    margin-bottom: 0;
+}
+.text-subbox p{
+    font-size: 14px;
+    color: #0071eb;
+    padding-bottom: 10%;
+}
+.stranger-things img{
+    height: 80px; /*if u want to resize images, you NEED to target the image and resize with pixels*/
+}
+.stranger-things{
+    margin-left: 4%;
+    margin-right: 6%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.loading-circle{  
+  padding: 12%;
+  margin-left: 12%;
+  width: 3rem;
+  height: 3rem;
+  outline: 2px solid rgb(0,0,0);
+  outline-offset: -2px;
+  background: url('https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif') center center no-repeat;
+  background-size: 100%;
+}
+.FAQ-section{
+    padding-top:7%;
+    text-align: center;
+}
+.FAQ-title{
+    text-align: center; /*centers title*/
+}
+.FAQ-title h2{
+    font-size: 50px;
+    font-weight: 900;
+}
+.accordion{ /*overwrites parent alignment*/
+    width: 100%;
+    font-size: 24px;
+    margin: 40px 0;
+    text-align: left;
+}
+.question{
+    position: relative;
+    background-color: #2d2d2d;
+    margin-bottom: 10px;
+}
+.question label:hover{
+    background-color: #444;
+}
+.question svg{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    transform: rotate(180deg); /*when u press the button again the svg uses this transition*/
+    transition: all 0.2s ease; /*ease does a slow -> fast -> slow transition*/
+}
+.question .title{ /*makes the block where the label is larger, which is going to represent the button*/
+    display: block;
+    padding: 24px 30px;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+.question .answer{
+    padding: 0px 30px;
+    max-height: 0; /*these 2 lines below hide the text with the summary*/
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+.question input[type = "checkbox"]{
+    display: none;
+}
+.question input[type = "checkbox"]:checked ~.answer{ /*u use ~ for hidden content*/
+    max-height: 600px;
+    padding: 24px 30px;
+}
+.question input[type = "checkbox"]:checked ~.title svg{ /*svg is nested inside a label called title in question, thus the format*/
+    transform: rotate(45deg); /*when the button is first presed*/
+}
+.membership-section{
+    text-align: center;
+}
+.membership-section h2{
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.final-signup{
+    position: relative;
+    width: 30%;
+    height: 60px;
+}
+.form-button{
+    display: flex;
+    justify-content: center;
+}
+.email-input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border-color: white;
+    color: white;
+    border-width: thin;
+    border-radius: 5px;
+    padding: 15px 20px 15px 12px;
+    margin-bottom: 80px;
+}
+.email-label2{
+    position: absolute;
+    padding: 15px 0px 0px 12px;
+    color: white;
+    top: 5px;
+    left: 0px;
+}
+.email-input:focus + .email-label2{
+    top: -12px;
+    left: 0;
+    z-index: 10;
+    font-size: 12px;
+}
+.svg-button{
+    padding-top: 5px;
+}
+.svg-btn{
+    padding-top: 3px;
+}
+.signup2-button{
+    display: flex;
+    justify-content: center;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px 10px 28px;
+    margin-left: 8px;
+    font-size: 26px;
+    margin-bottom: 80px;
+}
+.resource-section{
+    color: rgba(255,255,255,0.7);
+    padding-top: 1.5%;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+}
+.resource-section a{
+    color: rgba(255,255,255,0.7);
+}
+.resource-section ul{
+    float: left;
+    margin-right: 50px;
+}
+.resource-section li{
+    margin: 1em 0;
+}
+.question-class{
+    color:rgba(255,255,255,0.7);
+    padding-top: 5%;
+    padding-left: 5%;
+}
+.question-class a{
+    color: rgba(255,255,255,0.7);
+}
+.select-box2{
+    padding-top: 2%;
+    padding-left: 5%;
+    position: relative;
+}
+.select-box2 svg{
+    position: absolute;
+    top: 30px;
+    left: 65px;
+}
+.netflix{
+    color: rgba(255,255,255,0.7);
+    padding-top: 2%;
+    padding-left: 5%;
+    padding-bottom: 5%;
+}
